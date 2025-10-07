@@ -13,7 +13,7 @@ CREATE TABLE Address(
    zipcode VARCHAR(50)  NOT NULL,
    street VARCHAR(50)  NOT NULL,
    complement VARCHAR(50) ,
-   pays VARCHAR(50)  NOT NULL,
+   country VARCHAR(50)  NOT NULL,
    PRIMARY KEY(address_id)
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE Users(
    address_id INTEGER NOT NULL,
    PRIMARY KEY(user_id),
    UNIQUE(email),
-   FOREIGN KEY(address_id) REFERENCES adress(address_id)
+   FOREIGN KEY(address_id) REFERENCES address(address_id)
 );
 
 CREATE TABLE Product(
@@ -37,7 +37,7 @@ CREATE TABLE Product(
    stock INTEGER NOT NULL,
    name VARCHAR(50)  NOT NULL,
    volume INTEGER NOT NULL,
-   brande VARCHAR(50)  NOT NULL,
+   brand VARCHAR(50)  NOT NULL,
    category_id INTEGER NOT NULL,
    PRIMARY KEY(product_id),
    FOREIGN KEY(category_id) REFERENCES Category(category_id)
