@@ -22,7 +22,7 @@ INSERT INTO Product (image, price, stock, name, volume, brand, category_id) VALU
 ('heineken.jpg', 2.50, 200, 'Heineken', 33, 'Heineken', 1),
 ('chardonnay.jpg', 12.90, 50, 'Chardonnay', 750, 'Bourgogne', 2),
 ('coca.jpg', 1.80, 300, 'Coca-Cola', 33, 'Coca-Cola', 3),
-('orange_juice.jpg', 2.20, 150, 'Jus d\'orange', 1000, 'Tropicana', 4),
+('orange_juice.jpg', 2.20, 150, 'Jus d''orange', 1000, 'Tropicana', 4),
 ('whisky_jb.jpg', 25.00, 40, 'Whisky J&B', 700, 'J&B', 5),
 ('rosé_provence.jpg', 9.50, 60, 'Rosé de Provence', 750, 'Côtes de Provence', 2);
 
