@@ -1,11 +1,4 @@
-export interface AdressTypeRow {
-  address_id: number;
-  city: string;
-  zipcode: string;
-  street: string;
-  complement: string | null;
-  country: string;
-}
+import { AdressTypeRow } from "../Types/Types";
 
 export class Adress {
   protected address_id: number;

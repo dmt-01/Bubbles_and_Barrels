@@ -1,12 +1,4 @@
-export interface UsersTypeRow {
-  user_id: number;
-  email: string;
-  last_name: string;
-  first_name: string;
-  phone: string;
-  password: string;
-  adress_id: number;
-}
+import { UsersTypeRow } from "../Types/Types";
 
 export class Users {
   protected user_id: number;

@@ -1,10 +1,4 @@
-export interface CategoryTypeRow {
-  category_id: number;
-  name: string;
-  is_alcoholised: boolean;
-  image: string;
-  description: string;
-}
+import { CategoryTypeRow } from "../Types/Types";
 
 export class Category {
   protected category_id: number;
