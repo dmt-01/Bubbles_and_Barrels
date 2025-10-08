@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-      <h1>Résultats :</h1>
+      <h1>totoooooo :</h1>
       <pre>{JSON.stringify(fakeData, null, 2)}</pre>
     </div>
   );
