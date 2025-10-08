@@ -1,10 +1,4 @@
-export interface OrdersTypeRow {
-  order_id: number;
-  is_confirmed: boolean;
-  order_date: Date;
-  delivery_date: Date | null;
-  user_id: number;
-}
+import { OrdersTypeRow } from "../Types/Types";
 
 export class Orders {
   protected order_id: number;

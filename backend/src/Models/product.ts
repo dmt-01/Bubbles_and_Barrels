@@ -1,13 +1,4 @@
-export interface ProductTypeRow {
-  product_id: number;
-  image: string;
-  price: number;
-  stock: number;
-  name: string;
-  volume: number;
-  brand: string;
-  category_id: number;
-}
+import { ProductTypeRow } from "../Types/Types";
 
 export class Product {
   protected product_id: number;

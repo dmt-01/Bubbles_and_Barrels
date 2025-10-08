@@ -1,8 +1,4 @@
-export interface SaleTypeRow {
-  sale_id: number;
-  discount: number;
-  product_id: number;
-}
+import { SaleTypeRow } from "../Types/Types";
 
 export class Sale {
   protected sale_id: number;
