@@ -1,8 +1,4 @@
-export interface CommandProductTypeRow {
-  order_id: number;
-  product_id: number;
-  quantity: number;
-}
+import { CommandProductTypeRow } from "../Types/Types";
 
 export class CommandProduct {
   protected order_id: number;
