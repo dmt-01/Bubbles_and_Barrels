@@ -7,3 +7,10 @@ productRouter.get("/:id", (request, response) => {
   const productController = new ProductController(request, response);
   productController.getProductById();
 });
+
+productRouter.get("/", (request, response) => {
+  const productController = new ProductController(request, response);
+  productController.getAllProducts();
+});
+
+export default productRouter;
