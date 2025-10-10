@@ -1,11 +1,11 @@
 import { Repository } from "../Libs/Repository";
 import { Users } from "../Models/Users";
 
-export class TestRepository extends Repository {
-  async findAll() {
+export class UsersRepository extends Repository {
+  async findAllUsers(): Promise<Users[]> {
     const query = {
-      name: "fetch-all-users",
-      text: `SELECT * FROM users`,
+      name: "fetch-all-Users",
+      text: `SELECT * FROM Users`,
     };
 
     try {
