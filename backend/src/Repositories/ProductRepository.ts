@@ -49,17 +49,12 @@ export class ProductRepository extends Repository {
     const values = [];
     if (alcoholised !== undefined) {
       baseQuery +=
-        " INNER JOIN category ON category.category_id = product.category_id";
+        " INNER JOIN category ON category.category_id = product.category_id WHERE is_alcoholised = $1";
       values.push(alcoholised);
     }
-    if (
-      alcoholised != undefined ||
-      sales != undefined ||
-      categories.length !== 0
-    ) {
-      baseQuery += " WHERE";
-      if (alcoholised != undefined) {
-        baseQuery += " is_alcoholised = $1";
+    if (sales != undefined || categories.length !== 0) {
+      if (alcoholised === undefined) {
+        baseQuery += " WHERE";
       }
       if (categories.length != 0) {
         if (baseQuery.slice(-5) !== "WHERE") {
