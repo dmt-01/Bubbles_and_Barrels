@@ -1,28 +1,18 @@
-import { useEffect, useState } from "react";
+import './App.scss'
+import Footer from './components/Footer/footer';
+import Navbar from "./components/Navbar/navbar";
+import Homepage from './components/pages/HomePage';
 
 function App() {
-  const [fakeData, setFakeData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/test");
-        const data = await response.json();
-        setFakeData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
-    <div>
-      <h1>totoooooo :</h1>
-      <pre>{JSON.stringify(fakeData, null, 2)}ooooooooooooooooooooooooaaaaaaaaaazzzzzujsyebksdfbfsuifbsi</pre>
-    </div>
-  );
+    <>
+    <Navbar/>
+   <Homepage/>
+    <Footer/>
+    </>
+  )
 }
 
 export default App;

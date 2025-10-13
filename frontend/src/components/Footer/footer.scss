@@ -1,0 +1,37 @@
+.all_footer {
+  background-color: #5c8a64;
+  display: flex;
+  justify-content: space-around;
+  color: #e3b23c;
+}
+li {
+  list-style: none;
+}
+
+.column_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.column_middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.column_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+// .title_footer{
+
+// }
+
+// .list_footer{
+
+// }
