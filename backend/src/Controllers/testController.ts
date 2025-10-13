@@ -4,6 +4,7 @@ import { TestRepository } from "../Repositories/TestRepository";
 
 export class TestController extends Controller {
   private testRepository: TestRepository;
+
   constructor(request: Request, response: Response) {
     super(request, response);
 
