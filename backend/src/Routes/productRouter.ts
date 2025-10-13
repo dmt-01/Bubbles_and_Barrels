@@ -13,4 +13,9 @@ productRouter.get("/suggestion", (request, response) => {
   controller.suggestionPage();
 });
 
+productRouter.get("/:id", (request, response) => {
+  const productController = new ProductController(request, response);
+  productController.getProductById();
+});
+
 export default productRouter;
