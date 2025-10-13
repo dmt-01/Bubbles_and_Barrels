@@ -3,9 +3,11 @@ import testRouter from "./testRouter";
 import categoryrouter from "./categoryRouter";
 import saleRouter from "./saleRouter";
 import productRouter from "./productRouter";
+
 const router = Router();
 router.use("/product", productRouter);
 router.use("/test", testRouter);
 router.use("/categories", categoryrouter);
 router.use("/sale", saleRouter);
+
 export default router;

@@ -2,10 +2,10 @@ import { Repository } from "../Libs/Repository";
 import { Product } from "../Models/product";
 
 export class ProductRepository extends Repository {
-  async findById(id: string): Promise<Product | null> {
+  public async findById(id: string): Promise<Product | null> {
     const query = {
       name: "fetch-product-by-id",
-      text: `SELECT * FROM product WHERE id = $1`,
+      text: `SELECT * FROM product WHERE product_id = $1`,
       values: [id],
     };
 
@@ -19,15 +19,15 @@ export class ProductRepository extends Repository {
     return null;
   }
 
-  async findAllProducts(
-    alcoholised: boolean | null = null,
-    sales: boolean | null = null,
-    categories: number[] = []
+  public async findAllProducts(
+    alcoholised: boolean | undefined = undefined,
+    sales: boolean | undefined = undefined,
+    categories: string[] = []
   ): Promise<Product[]> {
+    const queryData = this.buildQuery(alcoholised, sales, categories);
     const query = {
-      name: "fetch-product-by-id",
-      text: this.buildQuery(alcoholised, sales, categories),
-      values: [alcoholised, categories.toString()],
+      text: queryData.text,
+      values: queryData.values,
     };
 
     try {
@@ -41,27 +41,29 @@ export class ProductRepository extends Repository {
   }
 
   private buildQuery(
-    alcoholised: boolean | null = null,
-    sales: boolean | null = null,
-    categories: number[] = []
-  ): string {
+    alcoholised: boolean | undefined,
+    sales: boolean | undefined,
+    categories: string[]
+  ): { text: string; values: Array<unknown> } {
     let baseQuery = "SELECT DISTINCT product.* FROM product";
-    if (alcoholised != null) {
+    const values = [];
+    if (alcoholised !== undefined) {
       baseQuery +=
-        " INNER JOIN category ON category.category_id = product.category_id";
+        " INNER JOIN category ON category.category_id = product.category_id WHERE is_alcoholised = $1";
+      values.push(alcoholised);
     }
-    if (alcoholised != null || sales != null || categories.length != 0) {
-      baseQuery += " WHERE";
-      if (alcoholised != null) {
-        baseQuery += " is_alcoholised = $1";
+    if (sales != undefined || categories.length !== 0) {
+      if (alcoholised === undefined) {
+        baseQuery += " WHERE";
       }
       if (categories.length != 0) {
         if (baseQuery.slice(-5) !== "WHERE") {
           baseQuery += " AND";
         }
-        baseQuery += " category_id IN ($2)";
+        baseQuery += " product.category_id = ANY($2)";
+        values.push(categories);
       }
-      if (sales != null) {
+      if (sales != undefined) {
         if (baseQuery.slice(-5) !== "WHERE") {
           baseQuery += " AND";
         }
@@ -69,9 +71,25 @@ export class ProductRepository extends Repository {
           baseQuery += " NOT";
         }
         baseQuery +=
-          " EXISTS (SELECT sale_id FROM sale WHERE product_id=product.product_id);";
+          " EXISTS (SELECT sale_id FROM sale WHERE sale.product_id=product.product_id);";
       }
     }
-    return baseQuery;
+    return { text: baseQuery, values };
+  }
+
+  async findProduct() {
+    const query = {
+      name: "fetch-all-product",
+      text: `SELECT * FROM product`,
+    };
+
+    try {
+      const result = await this.pool.query(query);
+
+      return result.rows.map((row) => Product.fromRow(row));
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
   }
 }
