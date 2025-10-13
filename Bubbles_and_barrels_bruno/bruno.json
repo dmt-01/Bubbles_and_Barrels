@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Bubbles_and_barrels",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -11,6 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", router);
 
+app.post("/test", (req, res) => {
+  res.json({ message: "Route test OK !" });
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Serveur en ligne sur http://localhost:${PORT}`);
 });

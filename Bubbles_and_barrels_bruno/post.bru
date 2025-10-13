@@ -1,0 +1,36 @@
+meta {
+  name: post
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:5173/api/insertusers
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "email": "john.doe@example.com",
+    "last_name": "Doe",
+    "first_name": "John",
+    "phone": "0611223344",
+    "password": "password123",
+    "address": {
+      "street": "10 rue des Lilas",
+      "complement": "Appartement 4B",
+      "zipcode": "75000",
+      "city": "Paris",
+      "country": "France"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

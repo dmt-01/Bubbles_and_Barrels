@@ -17,4 +17,63 @@ export class UsersRepository extends Repository {
     }
     return [];
   }
+
+  async insertUser(userData: {
+    email: string;
+    last_name: string;
+    first_name: string;
+    phone: string;
+    password: string;
+    address: {
+      street: string;
+      complement?: string | null;
+      zipcode: string;
+      city: string;
+      country: string;
+    };
+  }) {
+
+    try {
+      const insertAddressQuery = {
+        text: `
+        INSERT INTO address (street, complement, zipcode, city, country)
+        VALUES ($1, $2, $3, $4, $5)
+        RETURNING address_id;
+      `,
+        values: [
+          userData.address.street,
+          userData.address.complement ?? null,
+          userData.address.zipcode,
+          userData.address.city,
+          userData.address.country,
+        ],
+      };
+
+      const addressResult = await this.pool.query(insertAddressQuery);
+      const addressId = addressResult.rows[0].address_id;
+
+      const insertUserQuery = {
+        text: `
+        INSERT INTO users (email, last_name, first_name, phone, password, address_id)
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING *;
+      `,
+        values: [
+          userData.email,
+          userData.last_name,
+          userData.first_name,
+          userData.phone,
+          userData.password,
+          addressId,
+        ],
+      };
+
+      const userResult = await this.pool.query(insertUserQuery);
+
+      return Users.fromRow(userResult.rows[0]);
+    } catch (error) {
+      console.error("Erreur lors de l’insertion utilisateur :", error);
+      throw error;
+    }
+  }
 }
