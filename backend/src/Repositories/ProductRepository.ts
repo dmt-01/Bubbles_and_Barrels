@@ -60,8 +60,8 @@ export class ProductRepository extends Repository {
         if (baseQuery.slice(-5) !== "WHERE") {
           baseQuery += " AND";
         }
-        baseQuery += " product.category_id = ANY($2)";
         values.push(categories);
+        baseQuery += ` product.category_id = ANY($${values.length})`;
       }
       if (sales != undefined) {
         if (baseQuery.slice(-5) !== "WHERE") {
