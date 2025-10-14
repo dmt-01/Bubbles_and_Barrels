@@ -55,3 +55,17 @@ export interface UsersTypeRow {
   password: string;
   adress_id: number;
 }
+
+export type Result<S, E = unknown> = ResultSuccess<S> | ResultFail<E>;
+
+export interface ResultFail<E = unknown> {
+  success: false;
+  message: string;
+  data?: E;
+}
+
+export interface ResultSuccess<S> {
+  success: true;
+  data: S;
+  message?: string;
+}
