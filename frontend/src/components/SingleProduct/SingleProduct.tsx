@@ -19,7 +19,7 @@ function SingleProduct() {
         <section>
           <h2>{data.data.name}</h2>
           <img
-            src={`http://localhost:5000/${data.data.image}`}
+            src={`http://localhost:5000/image/${data.data.image}`}
             alt={data.data.name}
           />
           <p>Prix: {data.data.price}€</p>
