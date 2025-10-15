@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { categoriesController } from "../Controllers/catogoriesController";
+import { CategoriesController } from "../Controllers/catogoriesController";
 
 const categoryrouter = Router();
 
 categoryrouter.get("/", (request, response) => {
-  const controller = new categoriesController(request, response);
+  const controller = new CategoriesController(request, response);
   controller.categoriesPage();
 });
 
