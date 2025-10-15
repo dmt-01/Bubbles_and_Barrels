@@ -1,5 +1,5 @@
-import { Repository } from "../Libs/Repository";
-import Token from "../Models/Token";
+import { Repository } from "../libs/Repository";
+import Token from "../models/Token";
 
 export class TokenRepository extends Repository {
   async find(token: string): Promise<Token | null> {

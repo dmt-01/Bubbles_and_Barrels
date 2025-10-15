@@ -1,5 +1,5 @@
 import express from "express";
-import router from "./Routes";
+import router from "./routes";
 import cors from "cors";
 import dotenv from "dotenv";
 

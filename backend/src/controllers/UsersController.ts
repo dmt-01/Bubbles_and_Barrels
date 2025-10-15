@@ -1,10 +1,10 @@
-import { UsersRepository } from "../Repositories/UsersRepository";
-import { createUserSchema } from "../Libs/schemaZod/schemaUsers";
-import { Controller } from "../Libs/Controller";
+import { UsersRepository } from "../repositories/UsersRepository";
+import { createUserSchema } from "../libs/schemaZod/schemaUsers";
+import { Controller } from "../libs/Controller";
 import argon2 from "argon2";
-import { AuthService } from "../Services/AuthService";
-import { TokenRepository } from "../Repositories/TokenRepository";
-import Token from "../Models/Token";
+import { AuthService } from "../services/AuthService";
+import { TokenRepository } from "../repositories/TokenRepository";
+import Token from "../models/Token";
 
 export class UsersController extends Controller {
   public async getUsersId() {

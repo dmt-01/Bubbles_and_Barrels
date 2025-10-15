@@ -1,7 +1,7 @@
-import { Repository } from "../Libs/Repository";
-import { Category } from "../Models/Category";
+import { Repository } from "../libs/Repository";
+import { Category } from "../models/Category";
 
-export class categoriesRepository extends Repository {
+export class CategoriesRepository extends Repository {
   async findAll() {
     const query = {
       name: "fetch-all-category",

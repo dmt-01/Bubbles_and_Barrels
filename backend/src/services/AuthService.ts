@@ -1,7 +1,7 @@
 import { Request } from "express";
 import crypto from "node:crypto";
-import { Users } from "../Models/Users";
-import { Result } from "../Types/Types";
+import { Users } from "../models/Users";
+import { Result } from "../types/types";
 
 export class AuthService {
   static generateToken(): string {

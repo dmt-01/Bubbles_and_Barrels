@@ -1,7 +1,7 @@
-import { Controller } from "../Libs/Controller";
-import { Product } from "../Models/product";
+import { Controller } from "../libs/Controller";
+import { Product } from "../models/Product";
 import { Request, Response } from "express";
-import { ProductRepository } from "../Repositories/ProductRepository";
+import { ProductRepository } from "../repositories/ProductRepository";
 
 type MyQuery = {
   is_alcoholised?: string;

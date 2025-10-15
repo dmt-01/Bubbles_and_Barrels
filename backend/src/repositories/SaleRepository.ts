@@ -1,6 +1,6 @@
-import { Repository } from "../Libs/Repository";
-import { Product } from "../Models/product";
-import { Sale } from "../Models/Sale";
+import { Repository } from "../libs/Repository";
+import { Product } from "../models/Product";
+import { Sale } from "../models/Sale";
 
 export class SaleRepository extends Repository {
   async saleProduct() {

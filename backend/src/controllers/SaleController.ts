@@ -1,6 +1,6 @@
-import { Controller } from "../Libs/Controller";
+import { Controller } from "../libs/Controller";
 import { Request, Response } from "express";
-import { SaleRepository } from "../Repositories/saleRepository";
+import { SaleRepository } from "../repositories/SaleRepository";
 
 export class SaleController extends Controller {
   private saleRepo: SaleRepository;

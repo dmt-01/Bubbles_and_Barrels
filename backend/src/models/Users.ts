@@ -1,4 +1,4 @@
-import { UsersTypeRow } from "../Types/Types";
+import { UsersTypeRow } from "../types/types";
 
 export class Users {
   protected user_id: number;

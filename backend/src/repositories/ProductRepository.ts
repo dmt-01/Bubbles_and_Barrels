@@ -1,5 +1,5 @@
-import { Repository } from "../Libs/Repository";
-import { Product } from "../Models/product";
+import { Repository } from "../libs/Repository";
+import { Product } from "../models/Product";
 
 export class ProductRepository extends Repository {
   public async findById(id: string): Promise<Product | null> {

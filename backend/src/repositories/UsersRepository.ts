@@ -1,5 +1,5 @@
-import { Repository } from "../Libs/Repository";
-import { Users } from "../Models/Users";
+import { Repository } from "../libs/Repository";
+import { Users } from "../models/Users";
 
 export class UsersRepository extends Repository {
   async findAllUsers(): Promise<Users[]> {

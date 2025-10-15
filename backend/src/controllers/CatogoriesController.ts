@@ -1,13 +1,13 @@
-import { Controller } from "../Libs/Controller";
+import { Controller } from "../libs/Controller";
 import { Request, Response } from "express";
-import { categoriesRepository } from "../Repositories/categoriesRepository";
+import { CategoriesRepository } from "../repositories/CategoriesRepository";
 
 export class CategoriesController extends Controller {
-  private category: categoriesRepository;
+  private category: CategoriesRepository;
   constructor(request: Request, response: Response) {
     super(request, response);
 
-    this.category = new categoriesRepository();
+    this.category = new CategoriesRepository();
   }
 
   public async categoriesPage() {

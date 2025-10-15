@@ -1,4 +1,4 @@
-import { OrdersTypeRow } from "../Types/Types";
+import { OrdersTypeRow } from "../types/types";
 
 export class Orders {
   protected order_id: number;

@@ -1,4 +1,4 @@
-import { CategoryTypeRow } from "../Types/Types";
+import { CategoryTypeRow } from "../types/types";
 
 export class Category {
   protected category_id: number;

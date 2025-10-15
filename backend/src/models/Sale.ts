@@ -1,4 +1,4 @@
-import { SaleTypeRow } from "../Types/Types";
+import { SaleTypeRow } from "../types/types";
 
 export class Sale {
   protected sale_id: number;

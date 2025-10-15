@@ -1,4 +1,4 @@
-import { CommandProductTypeRow } from "../Types/Types";
+import { CommandProductTypeRow } from "../types/types";
 
 export class CommandProduct {
   protected order_id: number;

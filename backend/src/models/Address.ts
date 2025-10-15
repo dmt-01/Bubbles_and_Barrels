@@ -1,4 +1,4 @@
-import { AdressTypeRow } from "../Types/Types";
+import { AdressTypeRow } from "../types/types";
 
 export class Adress {
   protected address_id: number;
