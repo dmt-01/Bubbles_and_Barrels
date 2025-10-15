@@ -45,7 +45,7 @@ export class TokenRepository extends Repository {
       name: "create-token",
       text: `INSERT INTO token (user_id, token, created_at)
       VALUES ($1, $2, $3)
-      RETURNING ID
+      RETURNING token_id
       `,
       values: [token.getUserId(), token.getToken(), token.getCreatedAt()],
     };

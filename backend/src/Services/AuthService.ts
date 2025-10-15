@@ -4,12 +4,10 @@ import { Users } from "../Models/Users";
 import { Result } from "../Types/Types";
 
 export class AuthService {
-  // Test N°1
   static generateToken(): string {
     return crypto.randomBytes(16).toString("hex");
   }
 
-  // Test N°2
   static createUser(
     user_id: number,
     email: string,
@@ -30,7 +28,6 @@ export class AuthService {
     );
   }
 
-  // Test N°3
   static findUserByEmail(users: Users[], email: string): Result<Users, null> {
     const exists = users.find((user) => user.getEmail() === email);
 
@@ -41,7 +38,6 @@ export class AuthService {
     return { success: true, data: exists };
   }
 
-  // Test N°4
   static authenticateUser(
     users: Users[],
     email: string,
@@ -59,7 +55,6 @@ export class AuthService {
     return { success: true, data: found.data };
   }
 
-  // Test N°5
   static validateAuthRequest(
     request: Request
   ): Result<{ email: string; password: string }, null> {
@@ -78,7 +73,6 @@ export class AuthService {
     };
   }
 
-  // Test N°6
   static validateAuthToken(request: Request): Result<{ token: string }, null> {
     // On récupères les cookies de la requête entrante
     const authCookies = request.cookies;
