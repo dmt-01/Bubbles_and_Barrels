@@ -1,27 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
-import App from "./App";
-import CategoryPage from "./components/pages/CategoryPage";
-import AllProductPage from "./components/pages/Allproduct";
-import ProductPage from "./components/pages/ProductPage";
+import { BrowserRouter} from "react-router";
+import Navbar from "./components/Navbar/navbar";
+import Footer from "./components/Footer/footer";
+import Router from "./routes";
+import "./main.scss"
+
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        Navbar
-        <Route path="/" element={<App />} />
-        <Route path="/categories" element={<CategoryPage />} />
-        <Route path="/products" element={<AllProductPage />} />
-        <Route path="/products/:id" element={<ProductPage />} />
-        {/*<Route path="/login" element={"bite"} />
-        <Route path="/register" element={"bite"} />
-        <Route path="/cart" element={"bite"} />
-        <Route path="/payment" element={"bite"} />
-        <Route path="/history" element={"bite"} />  */}
-        footer
-      </Routes>
+      <Navbar />
+      <Router />
+      <Footer />
     </BrowserRouter>
   </StrictMode>
 );

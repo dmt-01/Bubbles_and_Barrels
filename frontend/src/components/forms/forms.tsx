@@ -3,8 +3,7 @@ function Form() {
   return (
     <div className="all_forms">
       <h1>Inscription</h1>
-      {/* <form onSubmit="" */}
-       {/* className=""> */}
+      <form className="">
         <label>
           Name
           <input type="text" name="" 
@@ -98,7 +97,7 @@ function Form() {
       
 
         <button type="submit">Soumettre le formulaire</button>
-      {/* </form> */}
+      </form > 
     </div>
   );
 }
