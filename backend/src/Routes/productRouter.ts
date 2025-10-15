@@ -1,15 +1,15 @@
 import { Router } from "express";
-import { productController } from "../Controllers/productController";
+import { ProductController } from "../Controllers/ProductController";
 
 const productRouter = Router();
 
 productRouter.get("/allproduct", (request, response) => {
-  const controller = new productController(request, response);
+  const controller = new ProductController(request, response);
   controller.allProduct();
 });
 
 productRouter.get("/suggestion", (request, response) => {
-  const controller = new productController(request, response);
+  const controller = new ProductController(request, response);
   controller.suggestionPage();
 });
 

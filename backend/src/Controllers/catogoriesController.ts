@@ -2,7 +2,7 @@ import { Controller } from "../Libs/Controller";
 import { Request, Response } from "express";
 import { categoriesRepository } from "../Repositories/categoriesRepository";
 
-export class categoriesController extends Controller {
+export class CategoriesController extends Controller {
   private category: categoriesRepository;
   constructor(request: Request, response: Response) {
     super(request, response);
