@@ -9,6 +9,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        Navbar
         <Route path="/" element={<App />} />
         <Route path="/categories" element={<CategoryPage />} />
         <Route path="/products" element={<AllProductPage />} />
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/cart" element={"bite"} />
         <Route path="/payment" element={"bite"} />
         <Route path="/history" element={"bite"} />  */}
+        footer
       </Routes>
     </BrowserRouter>
   </StrictMode>

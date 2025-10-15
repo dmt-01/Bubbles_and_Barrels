@@ -13,10 +13,48 @@ export class UsersRepository extends Repository {
 
       return result.rows.map((row) => Users.fromRow(row));
     } catch (error) {
-      console.log(error);
+      console.error("Erreur lors de la recherche des utilisateurs :", error);
+      throw error;
     }
-    return [];
   }
+
+  async find(id: number): Promise<Users | null> {
+    const query = {
+      name: "find-user",
+      text: "SELECT * FROM users WHERE id = $1",
+      values: [id],
+    };
+
+    try {
+      const result = await this.pool.query(query);
+
+      if (result.rowCount === 0) return null;
+
+      return Users.fromRow(result.rows[0]);
+    } catch (error) {
+      console.error("Erreur lors de la recherche de l'utilisateur :", error);
+      throw error;
+    }
+  };
+
+  async findByEmail(email: string): Promise<Users | null> {
+    const query = {
+      name: "find-user-by-email",
+      text: "SELECT * FROM users WHERE email = $1",
+      values: [email],
+    };
+
+    try {
+      const result = await this.pool.query(query);
+
+      if (result.rowCount === 0) return null;
+
+      return Users.fromRow(result.rows[0]);
+    } catch (error) {
+      console.error("Erreur lors de la recherche utilisateur :", error);
+      throw error;
+    }
+  };
 
   async insertUser(userData: {
     email: string;
@@ -31,7 +69,7 @@ export class UsersRepository extends Repository {
       city: string;
       country: string;
     };
-  }) {
+  }): Promise<Users | null> {
 
     try {
       const insertAddressQuery = {
