@@ -18,4 +18,9 @@ productRouter.get("/:id", (request, response) => {
   productController.getProductById();
 });
 
+productRouter.get("/", (request, response) => {
+  const controller = new ProductController(request, response);
+  controller.getAllProducts();
+});
+
 export default productRouter;

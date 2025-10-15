@@ -60,7 +60,7 @@ export class ProductController extends Controller {
   }
 
   private parseQueryArray(string: string | undefined): string[] {
-    if (string === undefined) {
+    if (string === undefined || string === "null" || string === "") {
       return [];
     }
     return string.split(",");
