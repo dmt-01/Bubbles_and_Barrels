@@ -23,7 +23,7 @@ export function Filter() {
     {
       name: "promos",
       text: "Afficher toutes les offres",
-      value: "undefined",
+      value: "all",
       type: "radio",
     },
     {
@@ -39,7 +39,7 @@ export function Filter() {
     {
       name: "is_alcoholised",
       text: "Afficher toutes les boissons",
-      value: "undefined",
+      value: "all",
       type: "radio",
     },
     {
@@ -87,10 +87,20 @@ export function Filter() {
 
   const selectFilters = (event: FormEvent) => {
     event.preventDefault();
-    setQueries({
-      promos: formData.promos,
-      is_alcoholised: formData.is_alcoholised,
-      categories: formData.categories.toString(),
+    setQueries((searchParams) => {
+      searchParams.delete("promos");
+      searchParams.delete("is_alcoholised");
+      searchParams.delete("categories");
+      if (formData.promos) {
+        searchParams.set("promos", formData.promos);
+      }
+      if (formData.is_alcoholised) {
+        searchParams.set("is_alcoholised", formData.is_alcoholised);
+      }
+      if (formData.categories.length > 0) {
+        searchParams.set("categories", formData.categories.toString());
+      }
+      return searchParams;
     });
   };
 
@@ -102,7 +112,7 @@ export function Filter() {
         <ul>
           {alcoholFilters.map((alcoholFilter) => {
             return (
-              <li>
+              <li key={`${alcoholFilter.name}-${alcoholFilter.value}`}>
                 <InputDiv
                   name={alcoholFilter.name}
                   text={alcoholFilter.text}
@@ -120,7 +130,7 @@ export function Filter() {
         <ul>
           {saleFilters.map((saleFilter) => {
             return (
-              <li>
+              <li key={`${saleFilter.name}-${saleFilter.value}`}>
                 <InputDiv
                   name={saleFilter.name}
                   text={saleFilter.text}
@@ -139,7 +149,7 @@ export function Filter() {
           {data &&
             data.map((category) => {
               return (
-                <li>
+                <li key={category.category_id}>
                   <InputDiv
                     name={category.name}
                     text={category.name}

@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router";
 import "./allProduct.scss";
 import { useGetFetcher } from "../../core/useGetFetcher";
 import type { Product } from "../../core/types";
+import { ProductCard } from "../ProductCard/ProductCard";
 
 interface ListProduct {
   success: boolean;
@@ -22,12 +23,7 @@ function AllProduct() {
         {data &&
           data.data.map((product) => (
             <li key={product.product_id}>
-              <h3>{product.name}</h3>
-              <img src={product.image} alt={product.name} />
-              <p>Marque : {product.brand}</p>
-              <p>Volume : {product.volume} ml</p>
-              <p>Stock : {product.stock}</p>
-              <p>Prix : {product.price} €</p>
+              <ProductCard product={product} />
             </li>
           ))}
       </ul>
