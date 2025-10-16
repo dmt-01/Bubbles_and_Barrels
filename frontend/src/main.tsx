@@ -5,12 +5,15 @@ import { BrowserRouter } from "react-router";
 import { StrictMode } from "react";
 import Router from "./routes";
 import "./main.scss";
+import { CartContextProvider } from "./core/cartContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Navbar />
-      <Router />
+      <CartContextProvider>
+        <Router />
+      </CartContextProvider>
       <Footer />
     </BrowserRouter>
   </StrictMode>
