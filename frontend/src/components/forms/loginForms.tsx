@@ -11,17 +11,17 @@ export default function LoginForm() {
     "http://localhost:5000/api/login"
   );
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     await postData({ email, password });
   };
 
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
   };
 
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
   };
 
   return (
@@ -57,6 +57,7 @@ export default function LoginForm() {
         {error && <p className="error-message">❌ {error}</p>}
         {success && <p className="success-message">✅ Connexion réussie 🎉</p>}
         {success && <Navigate to="/" />}
+
       </form>
     </div>
   );

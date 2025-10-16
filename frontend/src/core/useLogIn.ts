@@ -24,10 +24,9 @@ export default function useLogIn(url: string): UseLogInReturn {
       }
 
       setSuccess(true);
+      setLoading(false);
     } catch (err: any) {
       setError(err.message || "Une erreur est survenue");
-    } finally {
-      setLoading(false);
     }
   };
 
