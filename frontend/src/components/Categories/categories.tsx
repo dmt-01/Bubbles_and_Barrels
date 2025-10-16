@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react"
-interface categerieProps{
-  id:number;
-  name:string;
-  image:string,
-  is_alcoholised:boolean;
-  description:string;
-}
+import type { Category } from "../../core/types";
+
+
+
 function Categories (){
-  const [categories, setcategories] = useState<categerieProps[]>([]);
+  const [categories, setcategories] = useState<Category[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +23,7 @@ function Categories (){
     return(
     <ul>
       {categories.map((categorie) => (
-        <li key={categorie.id}>
+        <li key={categorie.category_id}>
           <h3>{categorie.name}</h3>
           <img src={categorie.image} alt={categorie.name} />
           <p>{categorie.description}</p>

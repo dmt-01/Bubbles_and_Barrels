@@ -1,5 +1,5 @@
 import AllProduct from "../AllProduct/allProduct";
-import { Filter } from "../Filters/Filters";
+import Filter  from "../Filters/Filters";
 
 
 function AllProductPage() {

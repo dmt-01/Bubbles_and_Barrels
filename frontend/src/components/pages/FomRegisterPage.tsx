@@ -1,4 +1,4 @@
-import Form from "../forms/forms"
+import Form from "../forms/forms";
 
 
 function FormRegisterpage(){

@@ -6,13 +6,15 @@ type InputDivProps = {
   onChangeFunction: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function InputDiv({
+
+function InputDiv({
   name,
   text,
   value,
   type,
   onChangeFunction,
 }: InputDivProps) {
+
   return (
     <div>
       <input
@@ -26,3 +28,5 @@ export function InputDiv({
     </div>
   );
 }
+
+export default InputDiv;

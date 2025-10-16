@@ -1,17 +1,13 @@
-import "./Product.scss"
+import type { Product } from "../../core/types";
 import { useEffect, useState } from "react";
-interface ProductProps{
-  id:number;
-  price:number;
-    stock:number;
-    image:string,
-  name:string;
-  volume:number;
-  brand:string;
-}
-function Product (){
- const [products,setProducts]=useState<ProductProps[]>([]);
-useEffect(() => {
+import "./Product.scss"
+
+
+function ProductList (){
+
+  const [products,setProducts]=useState<Product[]>([]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:5000/api/product/suggestion");
@@ -32,7 +28,7 @@ useEffect(() => {
       <ul>
         
         {products.map((product) => (
-          <li key={product.id}>
+          <li key={product.product_id}>
             <h3>{product.name}</h3>
             <img src={product.image} alt={product.name} />
             <p>Marque : {product.brand}</p>
@@ -46,4 +42,4 @@ useEffect(() => {
   );
 }
 
-export default Product;
+export default ProductList;

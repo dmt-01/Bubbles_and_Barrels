@@ -1,7 +1,9 @@
-import "./navbar.scss";
 import { Link } from "react-router";
+import "./navbar.scss";
+
 
 function Navbar() {
+
   return (
     <div className="all_navbar">
       <img className="logo" src="/images/logo.png" alt="" />

@@ -1,13 +1,13 @@
+import { useGetFetcher } from "../../core/useGetFetcher";
 import { useCartContext } from "../../core/cartContext";
 import type { Product } from "../../core/types";
-import { useGetFetcher } from "../../core/useGetFetcher";
 
 interface ListProduct {
   success: boolean;
   data: Product[];
 }
 
-export function Cart() {
+function Cart() {
   const { cart } = useCartContext();
   const { data } = useGetFetcher<ListProduct>("product");
 
@@ -49,3 +49,5 @@ export function Cart() {
     </section>
   );
 }
+
+export default Cart;

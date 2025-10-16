@@ -1,5 +1,8 @@
 import "./header.scss";
+
+
 function Header() {
+
   return (
     <div className="all_header">
       <h1 className="title_header">Bubbles & Barrels</h1>

@@ -1,14 +1,9 @@
-import { Link, useParams } from "react-router";
 import { useGetFetcher } from "../../core/useGetFetcher";
-import { type Product } from "../../core/types";
 import { useCartContext } from "../../core/cartContext";
+import type { ProductResult } from "../../core/types";
 import { useState, type FormEvent } from "react";
+import { Link, useParams } from "react-router";
 
-type ProductResult = {
-  success: boolean;
-  data: Product;
-  message: string;
-};
 
 function SingleProduct() {
   const params = useParams();

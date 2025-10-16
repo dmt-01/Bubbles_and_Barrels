@@ -1,11 +1,13 @@
-import { Link } from "react-router";
 import type { Product } from "../../core/types";
+import { Link } from "react-router";
 
 type ProductCardProps = {
   product: Product;
 };
 
-export function ProductCard({ product }: ProductCardProps) {
+
+function ProductCard({ product }: ProductCardProps) {
+
   return (
     <Link to={`/products/${product.product_id}`}>
       <h3>{product.name}</h3>
@@ -17,3 +19,5 @@ export function ProductCard({ product }: ProductCardProps) {
     </Link>
   );
 }
+
+export default ProductCard;

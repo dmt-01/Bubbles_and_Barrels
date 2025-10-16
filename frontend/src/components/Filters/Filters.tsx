@@ -1,8 +1,8 @@
-import { useSearchParams } from "react-router";
 import { useGetFetcher } from "../../core/useGetFetcher";
-import { type Category } from "../../core/types";
-import { InputDiv } from "../InputDiv/InputDiv";
 import { useState, type FormEvent } from "react";
+import { type Category } from "../../core/types";
+import { useSearchParams } from "react-router";
+import InputDiv from "../InputDiv/InputDiv";
 
 type FormData = {
   promos: string;
@@ -10,7 +10,7 @@ type FormData = {
   categories: string[];
 };
 
-export function Filter() {
+function Filter() {
   const { data } = useGetFetcher<Category[]>("categories");
   const [queries, setQueries] = useSearchParams();
   const [formData, setFormData] = useState<FormData>({
@@ -166,3 +166,5 @@ export function Filter() {
     </form>
   );
 }
+
+export default Filter;

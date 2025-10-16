@@ -1,24 +1,8 @@
+import type { SaleProduct } from "../../core/types";
 import { useEffect, useState } from "react";
 import "./sale.scss";
 
-interface SaleProduct {
-  product: {
-    product_id: number;
-    name: string;
-    price: number;
-    image: string;
-    stock: number;
-    volume: number;
-    brand: string;
-    category_id: number;
-  };
-  sale: {
-    sale_id: number;
-    discount: number;
-    product_id: number;
-  };
-  discountedPrice: number;
-}
+
 
 function Sale() {
   const [sales, setSales] = useState<SaleProduct[]>([]);

@@ -1,13 +1,14 @@
-import { useSearchParams } from "react-router";
-import "./allProduct.scss";
+import  ProductCard  from "../ProductCard/ProductCard";
 import { useGetFetcher } from "../../core/useGetFetcher";
 import type { Product } from "../../core/types";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { useSearchParams } from "react-router";
+import "./allProduct.scss";
 
 interface ListProduct {
   success: boolean;
   data: Product[];
 }
+
 function AllProduct() {
   const [queries] = useSearchParams();
   const { data } = useGetFetcher<ListProduct>(

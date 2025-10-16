@@ -1,6 +1,6 @@
-import Header from "../Header/header"
-import Product from "../Product/Product"
-import Sale from "../Sale/sale"
+import Header from "../Header/header";
+import ProductList from "../Product/ProductList";
+import Sale from "../Sale/sale";
 
 function Homepage(){
 
@@ -8,9 +8,9 @@ function Homepage(){
     return(
         <>
         <Header/>
-        <Product/>
+        <ProductList />
         <Sale/>
         </>
     )
 }
-export default Homepage
+export default Homepage;

@@ -1,9 +1,11 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import type { UserFormData } from "../../core/types";
 import usePostFetch from "../../core/usePostUsers";
 import "./forms.scss";
-import type { UserFormData } from "../../core/types";
 
-export default function Form() {
+
+function Form() {
+
   const { postData, loading, error, data } = usePostFetch("http://localhost:5000/api/insertusers");
 
   const [formData, setFormData] = useState<UserFormData>({
@@ -115,3 +117,5 @@ export default function Form() {
     </div>
   );
 }
+
+export default Form;

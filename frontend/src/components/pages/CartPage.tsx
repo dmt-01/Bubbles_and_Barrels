@@ -1,13 +1,13 @@
-import { Cart } from "../Cart/Cart";
-import Footer from "../Footer/footer";
-import Navbar from "../Navbar/navbar";
+import Cart from "../Cart/Cart";
 
-export function CartPage() {
+
+function CartPage() {
+
   return (
     <>
-      <Navbar />
       <Cart />
-      <Footer />
     </>
   );
 }
+
+export default CartPage;

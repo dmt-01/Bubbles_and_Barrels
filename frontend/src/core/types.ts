@@ -17,6 +17,31 @@ export type Category = {
   description: string;
 };
 
+export type ProductResult = {
+  success: boolean;
+  data: Product;
+  message: string;
+};
+
+export interface SaleProduct {
+  product: {
+    product_id: number;
+    name: string;
+    price: number;
+    image: string;
+    stock: number;
+    volume: number;
+    brand: string;
+    category_id: number;
+  };
+  sale: {
+    sale_id: number;
+    discount: number;
+    product_id: number;
+  };
+  discountedPrice: number;
+}
+
 export type Cart = {
   products: { product_id: number; quantity: number }[];
 };
@@ -56,3 +81,4 @@ export interface UseLogInReturn {
   error: string | null;
   success: boolean;
 }
+

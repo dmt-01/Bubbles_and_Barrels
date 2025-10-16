@@ -1,9 +1,9 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import useLogIn from "../../core/useLogIn";
-import "./forms.scss";
 import { Navigate } from "react-router";
+import "./forms.scss";
 
-export default function LoginForm() {
+function LoginForm() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -62,3 +62,5 @@ export default function LoginForm() {
     </div>
   );
 }
+
+export default LoginForm;
