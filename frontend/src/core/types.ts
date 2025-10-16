@@ -16,3 +16,7 @@ export type Category = {
   is_alcoholised: boolean;
   description: string;
 };
+
+export type Cart = {
+  products: { product_id: number; quantity: number }[];
+};
