@@ -30,7 +30,7 @@ function ProductList (){
         {products.map((product) => (
           <li key={product.product_id}>
             <h3>{product.name}</h3>
-            <img src={product.image} alt={product.name} />
+            <img src={`http://localhost:5000/image/${product.image}`} alt={product.name} />
             <p>Marque : {product.brand}</p>
             <p>Volume : {product.volume} ml</p>
             <p>Stock : {product.stock}</p>

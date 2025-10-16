@@ -3,7 +3,7 @@ import FormLoginPage from "./components/pages/FormLoginPage";
 import CategoryPage from "./components/pages/CategoryPage";
 import AllProductPage from "./components/pages/Allproduct";
 import ProductPage from "./components/pages/ProductPage";
-import { CartPage } from "./components/pages/CartPage";
+import CartPage from "./components/pages/CartPage";
 import Homepage from "./components/pages/HomePage";
 import { Route, Routes } from "react-router";
 

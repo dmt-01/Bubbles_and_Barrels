@@ -8,7 +8,6 @@ interface ListProduct {
   success: boolean;
   data: Product[];
 }
-
 function AllProduct() {
   const [queries] = useSearchParams();
   const { data } = useGetFetcher<ListProduct>(
