@@ -1,12 +1,15 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import useLogIn from "../../core/useLogIn";
 import "./forms.scss";
+import { Navigate } from "react-router";
 
 export default function LoginForm() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const { postData, loading, error, success } = useLogIn("http://localhost:5000/api/login");
+  const { postData, loading, error, success } = useLogIn(
+    "http://localhost:5000/api/login"
+  );
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,6 +56,7 @@ export default function LoginForm() {
 
         {error && <p className="error-message">❌ {error}</p>}
         {success && <p className="success-message">✅ Connexion réussie 🎉</p>}
+        {success && <Navigate to="/" />}
       </form>
     </div>
   );
