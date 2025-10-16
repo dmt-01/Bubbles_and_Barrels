@@ -20,7 +20,9 @@ function Navbar() {
         </button>
       </ul>
 
-      <img className="img_navbar" src="/images/cart.png" alt="" />
+      <Link to="/cart">
+        <img className="img_navbar" src="/images/cart.png" alt="" />
+      </Link>
       <Link to="/login">
         <img className="img_navbar" src="/images/user.png" alt="" />
       </Link>
