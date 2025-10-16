@@ -20,3 +20,39 @@ export type Category = {
 export type Cart = {
   products: { product_id: number; quantity: number }[];
 };
+export interface UsePostFetchResult<T> {
+  postData: (body: unknown) => Promise<T | void>;
+  data: T | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export interface Address {
+  street: string;
+  complement: string;
+  zipcode: string;
+  city: string;
+  country: string;
+}
+
+export interface UserFormData {
+  email: string;
+  last_name: string;
+  first_name: string;
+  phone: string;
+  password: string;
+  confirmPassword: string;
+  address: Address;
+}
+
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export interface UseLogInReturn {
+  postData: (data: LoginData) => Promise<void>;
+  loading: boolean;
+  error: string | null;
+  success: boolean;
+}
