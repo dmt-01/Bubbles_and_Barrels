@@ -28,14 +28,13 @@ export default function usePostFetch<T = any>(url: string): UsePostFetchResult<T
       }
 
       setData(result);
-      return result;
-    } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Erreur inconnue";
-      setError(message);
-      console.error("❌ usePostFetch error:", message);
-    } finally {
       setLoading(false);
+      return result;
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Erreur inconnue";
+      setError(message);
+      console.error(" error:", message);
     }
   };
 

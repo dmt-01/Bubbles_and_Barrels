@@ -22,7 +22,6 @@ export default function Form() {
     },
   });
 
-  // 🔄 Gestion des changements dans les champs
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
@@ -36,7 +35,6 @@ export default function Form() {
     }
   };
 
-  // 🚀 Soumission du formulaire
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -111,8 +109,8 @@ export default function Form() {
           {loading ? "Envoi en cours..." : "Soumettre le formulaire"}
         </button>
 
-        {error && <p className="error-message">❌ {error}</p>}
-        {data && <p className="success-message">✅ Utilisateur créé avec succès !</p>}
+        {error && <p className="error-message">{error}</p>}
+        {data && <p className="success-message">Utilisateur créé avec succès !</p>}
       </form>
     </div>
   );
