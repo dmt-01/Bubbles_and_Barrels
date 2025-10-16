@@ -12,6 +12,8 @@ export class ProductRepository extends Repository {
     try {
       const result = await this.pool.query(query);
 
+      if (result.rowCount === 0) return null;
+
       return Product.fromRow(result.rows[0]);
     } catch (error) {
       console.log(error);

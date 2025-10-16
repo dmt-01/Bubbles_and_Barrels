@@ -17,6 +17,9 @@ export type Category = {
   description: string;
 };
 
+export type Cart = {
+  products: { product_id: number; quantity: number }[];
+};
 export interface UsePostFetchResult<T> {
   postData: (body: unknown) => Promise<T | void>;
   data: T | null;
