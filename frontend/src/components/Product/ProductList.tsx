@@ -23,11 +23,11 @@ function ProductList (){
 
     return (
 
-    <div >
+   <div className="all_product">
       <h2>Suggestion</h2>
-      <ul>
-        
-        {products.map((product) => (
+      <ul >
+          {products.map((product) => (
+            <div>
           <li key={product.product_id}>
             <h3>{product.name}</h3>
             <img src={`http://localhost:5000/image/${product.image}`} alt={product.name} />
@@ -36,6 +36,7 @@ function ProductList (){
             <p>Stock : {product.stock}</p>
             <p>Prix : {product.price} €</p>
           </li>
+          </div>
         ))}
       </ul>
     </div>
