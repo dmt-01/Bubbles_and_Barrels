@@ -140,7 +140,7 @@ function PaymentForm() {
 
   return (
     <section className="all_forms">
-      {cart && cart.products.length === 0 && <Navigate to="/" />}
+      {(!cart || (cart && cart.products.length === 0)) && <Navigate to="/" />}
       <h2>Paiement</h2>
       <form onSubmit={handleSubmit}>
         <label>

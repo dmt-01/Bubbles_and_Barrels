@@ -21,6 +21,8 @@ function Cart() {
     }
   };
 
+  console.log(cart);
+
   return (
     <section>
       <h2>Panier</h2>
@@ -57,7 +59,7 @@ function Cart() {
             }
           })}
       </ul>
-      {cart && cart.products.length === 0 && (
+      {(!cart || (cart && cart.products.length === 0)) && (
         <p>Aucun produit dans le panier</p>
       )}
       {cart && cart.products.length > 0 && (
