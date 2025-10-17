@@ -82,3 +82,9 @@ export interface UseLogInReturn {
   success: boolean;
 }
 
+export type PaymentFormData = {
+  cardNumber: string;
+  cvv: string;
+  expiryDate: string;
+  fullName: string;
+};

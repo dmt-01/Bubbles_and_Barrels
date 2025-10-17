@@ -1,6 +1,7 @@
 import { useGetFetcher } from "../../core/useGetFetcher";
 import { useCartContext } from "../../core/cartContext";
 import type { Product } from "../../core/types";
+import { Link } from "react-router";
 
 interface ListProduct {
   success: boolean;
@@ -8,8 +9,17 @@ interface ListProduct {
 }
 
 function Cart() {
-  const { cart } = useCartContext();
+  const { cart, setCart } = useCartContext();
   const { data } = useGetFetcher<ListProduct>("product");
+
+  const deleteFromCart = (product_id: number) => {
+    if (cart) {
+      const newProducts = cart.products.filter((product) => {
+        return product.product_id !== product_id;
+      });
+      setCart({ products: newProducts });
+    }
+  };
 
   console.log(cart);
 
@@ -18,6 +28,7 @@ function Cart() {
       <h2>Panier</h2>
       <ul>
         {cart &&
+          cart.products.length > 0 &&
           data &&
           cart.products.map((cartItem) => {
             const product = data.data.find((product) => {
@@ -34,6 +45,9 @@ function Cart() {
                   <p>Prix unitaire: {product.price}€</p>
                   <p>Quantité: {cartItem.quantity}</p>
                   <p>Prix total: {product.price * cartItem.quantity}€</p>
+                  <button onClick={() => deleteFromCart(cartItem.product_id)}>
+                    Supprimer du panier
+                  </button>
                 </li>
               );
             } else {
@@ -45,7 +59,12 @@ function Cart() {
             }
           })}
       </ul>
-      <button>Passer au paiement</button>
+      {(!cart || (cart && cart.products.length === 0)) && (
+        <p>Aucun produit dans le panier</p>
+      )}
+      {cart && cart.products.length > 0 && (
+        <Link to="/payment">Passer au paiement</Link>
+      )}
     </section>
   );
 }
