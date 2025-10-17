@@ -2,6 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+#root{
+
+  background-color: #faf8f4;
+
+    width: 80%;
+
+}
