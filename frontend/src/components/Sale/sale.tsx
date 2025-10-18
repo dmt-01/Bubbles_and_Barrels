@@ -56,6 +56,7 @@ function Sale() {
         </ul>
 
         <button className="nav-btn right" onClick={scrollRight}>
+          &#8250;
         </button>
       </div>
     </div>

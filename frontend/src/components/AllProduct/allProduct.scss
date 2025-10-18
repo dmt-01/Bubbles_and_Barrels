@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+
+.all-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 20px 0;
+
+  h2 {
+    font-family: $font-main;
+    font-size: 1.8rem;
+    color: $color-text;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      flex: 0 0 300px;
+    }
+  }
+}

@@ -17,7 +17,7 @@ function AllProduct() {
   );
 
   return (
-    <>
+    <div className="all-product">
       <h2>Tout les produits</h2>
       <ul>
         {data &&
@@ -27,7 +27,7 @@ function AllProduct() {
             </li>
           ))}
       </ul>
-    </>
+    </div>
   );
 }
 

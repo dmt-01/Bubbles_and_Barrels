@@ -4,7 +4,6 @@ import "./categories.scss";
 
 function Categories() {
   const [categories, setcategories] = useState<Category[]>([]);
-  const [data, setdata] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
