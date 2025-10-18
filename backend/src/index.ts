@@ -13,6 +13,9 @@ app.use(express.json());
 app.use("/image", express.static(path.join(path.resolve("public/assets"))));
 app.use("/api", router);
 
-app.listen(PORT, () => {
+app.listen(PORT, (error) => {
+  if (error) {
+    throw error;
+  }
   console.log(`🚀 Serveur en ligne sur http://localhost:${PORT}`);
 });

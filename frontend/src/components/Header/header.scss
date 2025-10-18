@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .all_header {
-  background-color: #5c8a64;
+  background-color: $color-primary;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,9 +10,9 @@
 }
 
 .title_header {
-  color: #e3b23c;
+  color: $color-secondary;
 }
 
 .para_header {
-  color: #e3b23c;
+  color: $color-secondary;
 }

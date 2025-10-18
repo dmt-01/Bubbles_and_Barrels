@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react"
 import type { Category } from "../../core/types";
+import { useEffect, useState } from "react";
+import "./categories.scss";
 
-
-
-function Categories (){
+function Categories() {
   const [categories, setcategories] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -20,22 +19,26 @@ function Categories (){
     fetchData();
   }, []);
 
-    return(
-    <ul>
-      {categories.map((categorie) => (
-        <li key={categorie.category_id}>
-          <h3>{categorie.name}</h3>
-          <img src={categorie.image} alt={categorie.name} />
-          <p>{categorie.description}</p>
-          <p>
-            {categorie.is_alcoholised
-              ? "Boisson alcoolisée"
-              : "Boisson non alcoolisée"}
-          </p>
-        </li>
-      ))}
+
+
+  return (
+    <div className="all_category">
+      <ul>
+        {categories.map((categorie) => (
+          <li key={categorie.category_id}>
+            <h3>{categorie.name}</h3>
+            <img src={categorie.image} alt={categorie.name} />
+            <p>{categorie.description}</p>
+            <p>
+              {categorie.is_alcoholised
+                ? "Boisson alcoolisée"
+                : "Boisson non alcoolisée"}
+            </p>
+          </li>
+        ))}
       </ul>
+    </div>
   );
 }
 
-export default Categories
+export default Categories;

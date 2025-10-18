@@ -17,7 +17,7 @@ function AllProduct() {
   );
 
   return (
-    <div>
+    <div className="all-product">
       <h2>Tout les produits</h2>
       <ul>
         {data &&

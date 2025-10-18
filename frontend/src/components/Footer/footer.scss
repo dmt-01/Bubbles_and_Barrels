@@ -1,8 +1,10 @@
+@import '../../styles/variables';
+
 .all_footer {
-  background-color: #5c8a64;
+  background-color: $color-primary;
   display: flex;
   justify-content: space-around;
-  color: #e3b23c;
+  color: $color-secondary;
 }
 li {
   list-style: none;
@@ -27,11 +29,3 @@ li {
   align-items: center;
   gap: 5px;
 }
-
-// .title_footer{
-
-// }
-
-// .list_footer{
-
-// }

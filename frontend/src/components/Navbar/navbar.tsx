@@ -18,7 +18,7 @@ function Navbar() {
           <Link to="/">Accueil</Link>
         </button>
         <button>
-          <Link to="/register">Connexion</Link>
+          <Link to="/register">Inscription</Link>
         </button>
       </ul>
 
